@@ -4,12 +4,15 @@
   "port": 5432,
   "username": "postgres",
   "password": "",
-  "database": "api_nps",
-  "migrations": ["./src/database/migrations/**.ts"],
-  "entities": ["./src/models/**.ts"],
+  "database": "api_nps_dev",
+  "migrations": [
+    "./src/database/migrations/**.ts"
+  ],
+  "entities": [
+    "./src/models/**.ts"
+  ],
   "logging": true,
   "cli": {
     "migrationsDir": "./src/database/migrations"
   }
 }
-
