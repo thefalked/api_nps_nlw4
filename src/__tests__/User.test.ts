@@ -1,22 +1,21 @@
 import request from 'supertest';
+import { getConnection } from 'typeorm';
 
 import { app } from '../app';
 
 import createConnection from "../database/index";
 
-let connection = null;
-
 describe("User", () => {
 
   beforeAll(async () => {
-    connection = await createConnection();
+    const connection = await createConnection();
     await connection.runMigrations();
   });
 
-  afterAll(async (done) => {
+  afterAll(async () => {
+    const connection = getConnection();
     await connection.dropDatabase();
     await connection.close();
-    done();
   });
 
   it("Should be able to create a new user", async () => {
